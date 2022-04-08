@@ -42,6 +42,9 @@ export default {
             }
             .layout_content-right{
                 width: calc(100% - 220px);
+                .layout_main{
+                    min-height: 100%;
+                }
             }
             &-right{
                 overflow: auto;

@@ -137,7 +137,6 @@ export default {
 <style lang='scss' scoped>
   .rightSide{
     background-color: #f9f9f9;
-    height: 100%;
     overflow: auto;
     .rightSide-tabs{
         margin-top: 10px;

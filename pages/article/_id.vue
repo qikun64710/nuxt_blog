@@ -48,6 +48,8 @@ export default {
     .articleContent {
         flex: 1;
         .articleLis{
+            background-color: #ffffff;
+            border-radius: 4px;
             .wrapper-lg{
                 padding: 30px;
             }
