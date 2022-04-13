@@ -2,10 +2,13 @@
   <div class="article">
     <div class="articleContent">
       <arhead>
+        <!-- 文章banner -->
+        <div class="entry-thumbnail" v-if="articleInfo.banner">
+          <div class="item-thumb" :style="`background: url(${articleInfo.banner});`"></div>
+        </div>
         <div class="articleLis">
-            <div class="wrapper-lg">
-                ni
-            </div>
+          <!-- 文章正文 -->
+          <div class="wrapper-lg" v-html="articleInfo.content" ></div>
         </div>
       </arhead>
     </div>
@@ -15,7 +18,15 @@
 
 <script>
 import arhead from "./head.vue";
+import axios from 'axios'
+
 export default {
+  async asyncData({params}) {
+        let { data } = await axios.post(`http://169.254.254.183:3001/api/article/findArticle?id=${params.id}`) 
+        return {
+            articleInfo:data.data
+        }
+    },
   components: {
     arhead,
   },
@@ -40,6 +51,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './style.scss';
 .article {
     background-color: #f1f3f4;
     display: flex;
@@ -47,16 +59,25 @@ export default {
     // min-width: 100%;
     .articleContent {
         flex: 1;
+        .entry-thumbnail {
+          position: relative;
+          .item-thumb {
+            min-height: 250px;
+            position: relative;
+            display: block;
+            background-position: 50% 50% !important;
+            background-size: cover !important;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+          }
+        }
         .articleLis{
             background-color: #ffffff;
             border-radius: 4px;
-            .wrapper-lg{
-                padding: 30px;
-            }
         }
     }
     .layout_rightSide{
-        width: 240px;
+      width: 240px;
     }
 }
 </style>

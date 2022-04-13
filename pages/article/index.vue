@@ -3,9 +3,9 @@
     <div class="articleContent">
      <arhead>
         <div class="articleLis">
-            <template v-for="(item, index) in articleLi">
-            <articleList :article='item' :key="index"></articleList>
-            </template>
+          <nuxt-link v-for="(item, index) in articleLi"  :key="index" :to="`/article/${item.id}`">
+            <articleList  :article='item'></articleList>
+          </nuxt-link>
         </div>
      </arhead>
     </div>
@@ -41,7 +41,14 @@ export default {
     // 监控data中的数据变化
     watch: {},
     // 方法集合
-    methods: {},
+    methods: {
+      showDetail(id){
+        console.log('1111')
+        this.$router.push({
+            path: `/article/${id}`
+        })
+      }
+    },
     beforeCreate() {}, // 生命周期 - 创建之前
     beforeMount() {}, // 生命周期 - 挂载之前
     beforeUpdate() {}, // 生命周期 - 更新之前

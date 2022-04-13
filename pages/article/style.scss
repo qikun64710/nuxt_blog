@@ -1,0 +1,40 @@
+.wrapper-lg{
+    padding: 30px;
+    font-size: 16px;
+    position: relative;
+    word-break: break-all;
+    width: 670px;
+    h1{
+
+    }
+    h2{
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #d9dee4;
+        a{
+            font-weight: 600;
+            line-height: 1.25;
+            color: #000;
+        }
+    }
+    h3{
+        font-size: 1.25em;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+    p{
+        margin: 0 0 20px 0;
+        strong{
+            font-weight: 700;
+        }
+        code{
+            padding: 2px 4px;
+            font-size: 90%;
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px;
+        }
+    }
+  }

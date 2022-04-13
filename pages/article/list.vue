@@ -1,9 +1,11 @@
 <template>
   <div class="articleList">
       <div class="articleList-left">
-        <a href="">
-            <img src="https://edge.yancey.app/beg/glx4p7hn-1645088748099.jpg" alt="">
-        </a>
+            <el-image
+                style="border-radius: 10px;"
+                :src="article && article.banner"
+                fit="cover">
+            </el-image>
       </div>
       <div class="articleList-right">
           <h2 class="oneOmit">{{article && article.title}}</h2>

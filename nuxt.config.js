@@ -21,7 +21,7 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     // 项目里要使用的 SCSS 文件
-    '@/assets/css/main.scss',
+    '@/assets/css/index.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
