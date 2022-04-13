@@ -16,17 +16,18 @@ export default {
       { rel: "stylesheet", href: "https://at.alicdn.com/t/font_3284581_o282f2goec.css" }
     ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
+    'markdown-it-vue/dist/markdown-it-vue.css',
     // 项目里要使用的 SCSS 文件
-    '@/assets/css/index.scss',
+    '@/assets/css/main.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
+    '@/plugins/highlight',
     { src: '@/assets/js/iconfont.js', ssr: false }
   ],
 
@@ -40,9 +41,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
-
+  modules: [],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/]

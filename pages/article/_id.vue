@@ -8,7 +8,8 @@
         </div>
         <div class="articleLis">
           <!-- 文章正文 -->
-          <div class="wrapper-lg" v-html="articleInfo.content" ></div>
+          <!-- <div class="wrapper-lg" v-highlight v-html="$md.render(articleInfo.content)" ></div> -->
+          <markdown-it-vue class="wrapper-lg" :content="articleInfo.content" />
         </div>
       </arhead>
     </div>
@@ -19,16 +20,18 @@
 <script>
 import arhead from "./head.vue";
 import axios from 'axios'
-
+import MarkdownItVue from 'markdown-it-vue'
+import 'markdown-it-vue/dist/markdown-it-vue.css'
 export default {
   async asyncData({params}) {
-        let { data } = await axios.post(`http://169.254.254.183:3001/api/article/findArticle?id=${params.id}`) 
+        let { data } = await axios.post(`http://192.168.199.235:3001/api/article/findArticle?id=${params.id}`) 
         return {
             articleInfo:data.data
         }
     },
   components: {
     arhead,
+    MarkdownItVue
   },
   // 定义属性
   data() {
@@ -38,6 +41,8 @@ export default {
   created() {},
   // 生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
+  computed: {
+  },
   // 监控data中的数据变化
   watch: {},
   // 方法集合

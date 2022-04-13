@@ -12,14 +12,20 @@
     "lintfix": "yarn lint:js --fix"
   },
   "dependencies": {
+    "@nuxtjs/markdownit": "^2.0.0",
     "axios": "^0.26.1",
     "core-js": "^3.19.3",
     "element-ui": "^2.15.6",
+    "github-markdown-css": "^5.1.0",
+    "highlight": "^0.2.4",
     "highlight.js": "^11.5.1",
+    "markdown-it-vue": "^1.1.7",
+    "marked": "^4.0.14",
     "node-sass": "^4.12.0",
     "nuxt": "^2.15.8",
     "sass-loader": "^7.1.0",
     "vue": "^2.6.14",
+    "vue-markdown": "^2.2.4",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^4.46.0"
