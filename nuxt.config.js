@@ -19,15 +19,19 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    'markdown-it-vue/dist/markdown-it-vue.css',
+    // 'github-markdown-css/github-markdown.css',
     // 项目里要使用的 SCSS 文件
     '@/assets/css/main.scss',
+    '@/assets/css/materialdesignicons.min.css',
+    '@/assets/css/github-markdown.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/highlight',
+    '@/plugins/axios',
+    '~/plugins/vueMarkdown',
     { src: '@/assets/js/iconfont.js', ssr: false }
   ],
 
@@ -41,9 +45,29 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
+  ],
+  axios: {
+    proxy: true,
+    prefix: '/api/',
+    credential: true
+  },
+ 
+  proxy: {
+    '/api/': {
+      target: 'http://localhost:3000/', // 目标服务器ip
+      pathRewrite: {
+        '^/api/': '/',  // 把 /api 替换成 /
+        changeOrigin: true // 是否跨域
+      }
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: [/^element-ui/]
+    transpile: [/^element-ui/],
+    vendor: ["axios"]
   }
 }

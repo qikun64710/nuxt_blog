@@ -8,8 +8,8 @@
         </div>
         <div class="articleLis">
           <!-- 文章正文 -->
-          <!-- <div class="wrapper-lg" v-highlight v-html="$md.render(articleInfo.content)" ></div> -->
-          <markdown-it-vue class="wrapper-lg" :content="articleInfo.content" />
+          <vue-markdown v-highlight class="wrapper-lg markdown-body" id="markdown" :source="articleInfo.content"></vue-markdown>
+          <!-- <div class="wrapper-lg" v-highlight v-html="marked(articleInfo.content)" ></div> -->
         </div>
       </arhead>
     </div>
@@ -19,19 +19,15 @@
 
 <script>
 import arhead from "./head.vue";
-import axios from 'axios'
-import MarkdownItVue from 'markdown-it-vue'
-import 'markdown-it-vue/dist/markdown-it-vue.css'
 export default {
-  async asyncData({params}) {
-        let { data } = await axios.post(`http://192.168.199.235:3001/api/article/findArticle?id=${params.id}`) 
+  async asyncData({params,$axios}) {
+        let { data } = await $axios.post(`http://169.254.254.183:3001/api/article/findArticle?id=${params.id}`) 
         return {
             articleInfo:data.data
         }
     },
   components: {
     arhead,
-    MarkdownItVue
   },
   // 定义属性
   data() {
@@ -56,7 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './style.scss';
 .article {
     background-color: #f1f3f4;
     display: flex;
@@ -79,6 +74,13 @@ export default {
         .articleLis{
             background-color: #ffffff;
             border-radius: 4px;
+            .wrapper-lg{
+              padding: 30px;
+              font-size: 16px;
+              position: relative;
+              word-break: break-all;
+              width: 670px;
+            }
         }
     }
     .layout_rightSide{

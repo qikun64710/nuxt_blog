@@ -14,13 +14,12 @@
 </template>
 
 <script>
-import axios from 'axios'
 import arhead from './head.vue'
 import articleList from "./list.vue";
 import rightSide from "../../components/rightSide.vue";
 export default {
-    async asyncData({params}) {
-        let { data } = await axios.post(`http://192.168.199.235:3001/api/article/findAndCountAll?page=1&count=10`) 
+    async asyncData({params,$axios}) {
+        let { data } = await $axios.post(`http://169.254.254.183:3001/api/article/findAndCountAll?page=1&count=10`) 
         return {
             articleLi:data.info.data
         }
