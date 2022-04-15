@@ -8,8 +8,9 @@
         </div>
         <div class="articleLis">
           <!-- 文章正文 -->
-          <vue-markdown v-highlight class="wrapper-lg markdown-body" id="markdown" :source="articleInfo.content"></vue-markdown>
-          <!-- <div class="wrapper-lg" v-highlight v-html="marked(articleInfo.content)" ></div> -->
+          <vue-markdown v-highlight class="wrapper-lg  md-preview vuepress-theme md-scrn" id="md-editor-v3-preview" :source="articleInfo.content"></vue-markdown>
+          <!-- <vue-markdown  class="wrapper-lg" id="nice"  :source="articleInfo.content"></vue-markdown> -->
+          <!-- <div class="wrapper-lg md-preview vuepress-theme md-scrn" id="nice" v-html="articleInfo.content"></div> -->
         </div>
       </arhead>
     </div>

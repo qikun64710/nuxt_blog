@@ -19,11 +19,12 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    // 'github-markdown-css/github-markdown.css',
+    'md-editor-v3/lib/style.css',
     // 项目里要使用的 SCSS 文件
     '@/assets/css/main.scss',
-    '@/assets/css/materialdesignicons.min.css',
-    '@/assets/css/github-markdown.css',
+    '@/assets/css/theme/basic.css',
+    '@/assets/css/theme/qwz.css',
+    '@/assets/css/code-theme/mac.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
