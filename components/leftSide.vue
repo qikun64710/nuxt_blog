@@ -1,7 +1,7 @@
 <template>
   <div class="leftSide">
     <personality></personality>
-    <leftSideNave></leftSideNave>
+    <!-- <leftSideNave></leftSideNave> -->
     <leftSideForm></leftSideForm>
   </div>
 </template>

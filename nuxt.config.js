@@ -32,7 +32,7 @@ export default {
     '@/plugins/element-ui',
     '@/plugins/highlight',
     '@/plugins/axios',
-    '~/plugins/vueMarkdown',
+    '@/plugins/vuemarkdown',
     { src: '@/assets/js/iconfont.js', ssr: false }
   ],
 

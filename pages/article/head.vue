@@ -9,11 +9,11 @@
                 <i class="iconfont icon-shouye shouye"></i>
                 <el-breadcrumb separator="/">
                     <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                    <el-breadcrumb-item><a href="/">java</a></el-breadcrumb-item>
+                    <el-breadcrumb-item>{{breadcrumb}}</el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
             <div class="article_info">
-                <slot></slot>
+              <slot></slot>
             </div>
         </div>
   </div>
@@ -22,6 +22,7 @@
 <script>
 
 export default {
+  props:['breadcrumb'],
   // 定义属性
   data() {
     return {

@@ -4,7 +4,7 @@
           <img class="img-circle" src="https://www.ihewro.com/usr/uploads/2020/02/863730882.jpg" alt="">
       </div>
       <div class="motto">
-          <span class="block motto-title">月色真美</span>
+          <span class="block motto-title">欢欢名言</span>
           <span class="motto-des block">至高至明日月，至亲至疏夫妻</span>
       </div>
   </div>

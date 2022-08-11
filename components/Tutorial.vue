@@ -1,6 +1,6 @@
 <template>
   <div>
-    中间内容
+    中间内容11
   </div>
 </template>
 <script>

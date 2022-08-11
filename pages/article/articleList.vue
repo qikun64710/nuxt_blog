@@ -1,10 +1,10 @@
 <template>
-  <div class="articleIndex">
+  <div class="articleLi">
     <div class="articleContent">
-     <arhead>
+     <arhead :breadcrumb="breadcrumb">
         <div class="articleLis">
           <nuxt-link v-for="(item, index) in articleLi"  :key="index" :to="`/article/${item.id}`">
-            <articleList  :article='item'></articleList>
+            <list  :article='item'></list>
           </nuxt-link>
         </div>
      </arhead>
@@ -15,17 +15,12 @@
 
 <script>
 import arhead from './head.vue'
-import articleList from "./list.vue";
+import list from "./list.vue";
 import rightSide from "../../components/rightSide.vue";
 export default {
-    async asyncData({params,$axios}) {
-        let { data } = await $axios.post(`http://169.254.254.183:3001/api/article/findAndCountAll?page=1&count=10`) 
-        return {
-            articleLi:data.info.data
-        }
-    },
+    props:['breadcrumb','articleLi'],
     components: {
-        articleList,
+        list,
         rightSide,
         arhead
     },
@@ -57,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.articleIndex {
+.articleLi {
   background-color: #f1f3f4;
   display: flex;
   min-height: 100%;

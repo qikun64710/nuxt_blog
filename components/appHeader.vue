@@ -1,12 +1,12 @@
 <template>
     <div class="header clearfix">
         <nav class="nav_header">
-            <div class="site-branding">齐坤</div>
-            <div class="head-search">
+            <div class="site-branding">🍅 番茄炒蛋</div>
+            <!-- <div class="head-search">
                 <el-input  size="small" placeholder="请输入内容">
                     <el-button slot="append" icon="el-icon-search"></el-button>
                 </el-input>
-            </div>
+            </div> -->
             <ul class="header-right">
                 <li>用户登录</li>
             </ul>

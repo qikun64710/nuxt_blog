@@ -1,50 +1,31 @@
 <template>
-  <div class="article">
-    <articleDetails v-if="show" :breadcrumb='breadcrumb' :articleInfo="articleInfo"></articleDetails>
-    <articleLi v-else :articleLi="articleLiArr" :breadcrumb="breadcrumb"></articleLi>
+  <div class="detaile">
+    <div class="articleContent">
+      <arhead  :breadcrumb="breadcrumb">
+        <!-- 文章banner -->
+        <div class="entry-thumbnail" v-if="articleInfo && articleInfo.banner">
+          <div class="item-thumb" :style="`background: url(${articleInfo && articleInfo.banner});`"></div>
+        </div>
+        <div class="articleLis">
+          <!-- 文章正文 -->
+          <vue-markdown v-highlight class="wrapper-lg  md-preview vuepress-theme md-scrn" id="md-editor-v3-preview" :source="articleInfo && articleInfo.content"></vue-markdown>
+        </div>
+      </arhead>
+    </div>
+    <right-side class="layout_rightSide"></right-side>
   </div>
 </template>
 
 <script>
-import articleDetails from "./detaile.vue";
-import articleLi from "./articleList.vue";
+import arhead from "./head.vue";
 export default {
-  async asyncData({ params, $axios}) {
-    let regPos = /^[0-9]+.?[0-9]*/;
-    let show = false
-    let articleInfo = ''
-    let breadcrumb = ''
-    if(regPos.test(params.id)){
-      let { data } = await $axios.post(`http://192.168.199.235:3001/api/article/findArticle?id=${params.id}`) 
-        return {
-          articleInfo:data.data,
-          show : true,
-          breadcrumb:'正文'
-        }
-    }else{
-      let _params = {
-        page:1,
-        count:10,
-        type:params.id
-      }
-      let { data } = await $axios.post(`http://192.168.199.235:3001/api/article/findAndCountAll`,_params) 
-      breadcrumb = params.id
-      return {
-          articleLiArr:data.info.data,
-          show:show,
-          articleInfo:articleInfo,
-          breadcrumb:breadcrumb
-      }
-    }
-  },
+    props:['articleInfo','breadcrumb'],
   components: {
-    articleDetails,
-    articleLi
+    arhead,
   },
   // 定义属性
   data() {
-    return {
-    };
+    return {};
   },
   // 生命周期 - 创建完成（可以访问当前this实例）
   created() {},
@@ -65,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article {
+.detaile {
     background-color: #f1f3f4;
     display: flex;
     // min-height: 100%;

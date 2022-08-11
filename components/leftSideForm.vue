@@ -1,7 +1,12 @@
 <template>
     <div class="leftSideForm">
-        <div class="leftSideForm-title">组成</div>
-        <el-menu router class="el-menu-vertical-demo" :collapse="false" background-color="rgb(73, 80, 96)" text-color="rgba(255,255,255,0.7)">
+        <div class="leftSideForm-title">导航</div>
+        <el-menu 
+            class="el-menu-vertical-demo" 
+            background-color='#f9f9f9'
+            unique-opened
+            active-text-color='#344449'
+            text-color='#777777'>
             <menu-sun :menuList="menuList" />
         </el-menu>
     </div>
@@ -18,32 +23,50 @@ export default {
     return {
         menuList: [
             {
+                name:'首页',
+                icon:'icon-shouye',
+                path:'/',
+                id:'1'
+            },
+            {
                 name:'分类',
                 icon:'icon-fenlei',
-                path:'/1',
-                children:[
+                path:'',
+                id:'2',
+                child:[
                     {
-                        name:'学习笔记',
-                        icon:'/2',
-                        path:'/article',
-                        children:[
+                        name:'开发笔记',
+                        icon:'',
+                        path:'',
+                        id:'3',
+                        child:[
                             {
-                                name:'开发项目',
-                                icon:'icon-pengyou',
-                                path:'/article'
+                                name:'vue',
+                                icon:'',
+                                path:'/article/vue',
+                                id:'4',
+                            },
+                            {
+                                name:'nuxt',
+                                icon:'',
+                                path:'/article/nuxt',
+                                id:'5',
+                            },
+                            {
+                                name:'react',
+                                icon:'',
+                                path:'/article/react',
+                                id:'6',
+                            },
+                            {
+                                name:'node',
+                                icon:'',
+                                path:'/article/node',
+                                id:'7',
                             }
                         ]
                     },
-                    {
-                        name:'默认分类',
-                        icon:'icon-pengyou',
-                        path:'/article'
-                    }
                 ]
-            },{
-                name:'友链',
-                icon:'icon-pengyou',
-                path:'/3'
             }
         ]
     }
