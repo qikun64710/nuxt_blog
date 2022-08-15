@@ -11,14 +11,12 @@
     </div>
 </template>
 <script>
-import navBar from '../components/appHeader';
-import leftSide from '../components/leftSide.vue'
-import rightSide from '../components/rightSide.vue'
+import navBar from './components/appHeader.vue';
+import leftSide from './components/leftSide.vue'
 export default {
     components:{
         navBar,
-        leftSide,
-        rightSide
+        leftSide
     }
 }
 </script>
