@@ -1,27 +1,25 @@
 <template>
   <div class="articleLi">
     <div class="articleContent">
-     <arhead :breadcrumb="breadcrumb">
+     <arhead>
         <div class="articleLis">
           <nuxt-link v-for="(item, index) in articleLi"  :key="index" :to="`/article/${item.id}`">
-            <list  :article='item'></list>
+            <list :article='item'></list>
           </nuxt-link>
         </div>
      </arhead>
     </div>
-    <right-side class="layout_rightSide"></right-side>
+    <!-- <right-side class="layout_rightSide"></right-side> -->
   </div>
 </template>
 
 <script>
 import arhead from './head.vue'
 import list from "./list.vue";
-import rightSide from "../../components/rightSide.vue";
 export default {
-    props:['breadcrumb','articleLi'],
+    props:['articleLi'],
     components: {
         list,
-        rightSide,
         arhead
     },
     // 定义属性
@@ -29,7 +27,9 @@ export default {
         return {};
     },
     // 生命周期 - 创建完成（可以访问当前this实例）
-    created() {},
+    created() {
+      
+    },
     // 生命周期 - 挂载完成（可以访问DOM元素）
     mounted() {},
     // 监控data中的数据变化
@@ -37,7 +37,6 @@ export default {
     // 方法集合
     methods: {
       showDetail(id){
-        console.log('1111')
         this.$router.push({
             path: `/article/${id}`
         })

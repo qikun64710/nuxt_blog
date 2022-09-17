@@ -3,7 +3,7 @@
         <navBar></navBar>
         <div class="layout_content">
             <left-side class="layout_leftSide"></left-side>
-            <div class="layout_content-right">
+            <div class="layout_content-right" id="layout_content-right">
                 <nuxt class="layout_main"></nuxt>
                 <!-- <right-side class="layout_rightSide"></right-side> -->
             </div>
@@ -11,7 +11,7 @@
     </div>
 </template>
 <script>
-import navBar from './components/appHeader.vue';
+import navBar from './components/appHeader.vue'
 import leftSide from './components/leftSide.vue'
 export default {
     components:{

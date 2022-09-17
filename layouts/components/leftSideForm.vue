@@ -23,51 +23,48 @@ export default {
     return {
         menuList: [
             {
-                name:'首页',
-                icon:'icon-shouye',
-                path:'/',
-                id:'1'
+                name: '首页',
+                icon: 'icon-shouye',
+                path: '/',
+                id: '1'
             },
-            {
-                name:'分类',
-                icon:'icon-fenlei',
-                path:'',
-                id:'2',
-                child:[
-                    {
-                        name:'开发笔记',
-                        icon:'',
-                        path:'',
-                        id:'3',
-                        child:[
-                            {
-                                name:'vue',
-                                icon:'',
-                                path:'/article/vue',
-                                id:'4',
-                            },
-                            {
-                                name:'nuxt',
-                                icon:'',
-                                path:'/article/nuxt',
-                                id:'5',
-                            },
-                            {
-                                name:'react',
-                                icon:'',
-                                path:'/article/react',
-                                id:'6',
-                            },
-                            {
-                                name:'node',
-                                icon:'',
-                                path:'/article/node',
-                                id:'7',
-                            }
-                        ]
-                    },
-                ]
-            }
+            // {
+            //     name: '分类',
+            //     icon: 'icon-fenlei',
+            //     path: '',
+            //     id: '2',
+            //     child: [ 
+            //             {  
+            //                 name:'开发笔记',
+            //                 icon:'',
+            //                 path:'',
+            //                 id:'3',
+            //                 child: [
+            //                     {
+            //                         name: 'vue',
+            //                         icon: '',
+            //                         path: '/article/vue',
+            //                         id: '4',
+            //                         categoryId: 1
+            //                     },
+            //                     {
+            //                         name: 'react',
+            //                         icon: '',
+            //                         path: '/article/react',
+            //                         id: '5',
+            //                         categoryId: 2
+            //                     },
+            //                     {
+            //                         name:'node',
+            //                         icon:'',
+            //                         path:'/article/node',
+            //                         id: '6',
+            //                         categoryId: 3
+            //                     }
+            //                 ]
+            //             },
+            //         ]
+            // }
         ]
     }
   },

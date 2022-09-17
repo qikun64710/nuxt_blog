@@ -33,7 +33,10 @@ export default {
     '@/plugins/highlight',
     '@/plugins/axios',
     '@/plugins/vuemarkdown',
-    { src: '@/assets/js/iconfont.js', ssr: false }
+    { src: '@/assets/js/iconfont.js', ssr: false },
+    { src: '~/plugins/vue-back-top.js', ssr: false },
+    '@/plugins/vue-inject'
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -58,7 +61,7 @@ export default {
  
   proxy: {
     '/api/': {
-      target: 'http://localhost:3000/', // 目标服务器ip
+      target: 'http://localhost:3001/', // 目标服务器ip
       pathRewrite: {
         '^/api/': '/',  // 把 /api 替换成 /
         changeOrigin: true // 是否跨域

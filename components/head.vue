@@ -1,7 +1,7 @@
 <template>
   <div class="articleHead">
-      <header class="articleHead-head">
-        <h1>分类 设计作品 下的文章</h1>
+      <header id="articleHead-head" class="articleHead-head">
+        <h1>首页 下的文章</h1>
         <div class="articleHead-desc">你说过，人最大的敌人是自己</div>
       </header>
         <div class="articleHead-content">
@@ -15,14 +15,18 @@
             <div class="article_info">
               <slot></slot>
             </div>
+            <appFooter class="appFooter"></appFooter>
         </div>
   </div>
 </template>
 
 <script>
-
+import appFooter from './appFooter.vue'
 export default {
-  props:['breadcrumb'],
+  inject: ['breadcrumb'],
+  components: {
+    appFooter
+  },
   // 定义属性
   data() {
     return {
@@ -84,6 +88,9 @@ export default {
                 color: #777;
                 font-weight: 400;
             }
+        }
+        .appFooter{
+          margin-top: 20px;
         }
      }
   }

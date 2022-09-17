@@ -1,57 +1,55 @@
 <template>
-  <div class="article">
-    <articleDetails v-if="show" :breadcrumb='breadcrumb' :articleInfo="articleInfo"></articleDetails>
-    <articleLi v-else :articleLi="articleLiArr" :breadcrumb="breadcrumb"></articleLi>
+  <div class="detaile">
+    <div class="articleContent">
+      <arhead>
+        <!-- 文章banner -->
+        <div class="entry-thumbnail" v-if="articleInfo && articleInfo.banner">
+          <div class="item-thumb" :style="`background: url(${articleInfo && articleInfo.banner});`"></div>
+        </div>
+        <div class="articleLis">
+          <!-- 文章正文 -->
+          <vue-markdown v-highlight class="wrapper-lg  md-preview vuepress-theme md-scrn" id="md-editor-v3-preview" :source="articleInfo && articleInfo.content"></vue-markdown>
+        </div>
+      </arhead>
+    </div>
+    <!-- <right-side class="layout_rightSide"></right-side> -->
   </div>
 </template>
 
 <script>
-import articleDetails from "./detaile.vue";
-import articleLi from "./articleList.vue";
+import arhead from '@/components/head.vue'
 export default {
   async asyncData({ params, $axios}) {
     let regPos = /^[0-9]+.?[0-9]*/;
     let show = false
     let articleInfo = ''
-    let breadcrumb = ''
     if(regPos.test(params.id)){
-      let { data } = await $axios.post(`http://192.168.199.235:3001/api/article/findArticle?id=${params.id}`) 
+      let { result } = await $axios.post(`/article/findArticleId`, { id: params.id }) 
         return {
-          articleInfo:data.data,
+          articleInfo: result,
           show : true,
-          breadcrumb:'正文'
         }
-    }else{
-      let _params = {
-        page:1,
-        count:10,
-        type:params.id
-      }
-      let { data } = await $axios.post(`http://192.168.199.235:3001/api/article/findAndCountAll`,_params) 
-      breadcrumb = params.id
-      return {
-          articleLiArr:data.info.data,
-          show:show,
-          articleInfo:articleInfo,
-          breadcrumb:breadcrumb
-      }
+    }
+  },
+  provide() {
+    return {
+      breadcrumb: '正文'
     }
   },
   components: {
-    articleDetails,
-    articleLi
+    arhead,
   },
   // 定义属性
   data() {
-    return {
-    };
+    return {};
   },
   // 生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   // 生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {},
-  computed: {
+  mounted() {
+    this.customScrollTop()
   },
+  computed: {},
   // 监控data中的数据变化
   watch: {},
   // 方法集合
@@ -65,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article {
+.detaile {
     background-color: #f1f3f4;
     display: flex;
     // min-height: 100%;
@@ -92,12 +90,12 @@ export default {
               font-size: 16px;
               position: relative;
               word-break: break-all;
-              width: 670px;
+              // width: 670px;
             }
         }
     }
     .layout_rightSide{
-      width: 240px;
+      // width: 240px;
     }
 }
 </style>
