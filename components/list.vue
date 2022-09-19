@@ -18,7 +18,7 @@
               </li>
               <li>
                   <i class="iconfont icon-shijian_o"></i>
-                  2021 年 05 月 15 日
+                  {{ article && article.updatedAt }}
               </li>
               <li>
                   <i class="iconfont icon-pinglun"></i>
@@ -140,7 +140,7 @@ export default {
                     padding-right: 5px;
                     padding-left: 5px;
                     i{
-                        margin-right: 10px;
+                        margin-right: 5px;
                     }
                 }
             }
