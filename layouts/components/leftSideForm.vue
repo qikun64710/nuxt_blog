@@ -1,26 +1,31 @@
 <template>
     <div class="leftSideForm">
-        <div class="leftSideForm-title">导航</div>
-        <el-menu 
-            class="el-menu-vertical-demo" 
-            background-color='#f9f9f9'
-            unique-opened
-            active-text-color='#344449'
-            text-color='#777777'>
-            <menu-sun :menuList="menuList" />
-        </el-menu>
+        <ul>
+            <div class="leftSideForm-title">导航</div>
+            <li
+                v-for="(item, index) in menuList"
+                :key="index"
+                :class="{active: item.path === activePath}"
+                @click="activePath = item.path"
+            >
+                <nuxt-link :to="item.path" class="menu-child">
+                    <i :class="item.icon" class="icon iconfont"></i>
+                    <div class="title">
+                        {{ item.name }}
+                    </div>
+                </nuxt-link>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
-import MenuSun from "./menutree.vue";
 export default {
-    components:{
-        MenuSun
-    },
+    components:{},
   // 定义属性
   data() {
     return {
+        activePath: '',
         menuList: [
             {
                 name: '首页',
@@ -93,11 +98,38 @@ export default {
 <style lang='scss' scoped>
   .leftSideForm{
     border-bottom: 1px solid #fff;
-    &-title{
-        margin: 15px 0px 10px;
-        padding: 0px 15px;
-        color: #98a6ad;
-        font-size: 14px;
+    ul{
+        .leftSideForm-title{
+            margin: 15px 0px 10px;
+            padding: 0px 15px;
+            color: #98a6ad;
+            font-size: 12px;
+        }
+        .active{
+            background: rgba(0,0,0,.05);
+            color: #333333;
+            i{
+                color: #333333;
+            }
+        }
+        li{
+            a{
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+                i{
+                    opacity: .9;
+                    margin-right: 5px;
+                }
+            }
+            &:hover{
+                background: rgba(0,0,0,.05);
+                color: #333333;
+                i{
+                    color: #333333;
+                }
+            }
+        }
     }
   }
 </style>

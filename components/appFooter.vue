@@ -6,7 +6,7 @@
     <hr class="fiqqEu">
     <div class="gBIvsm">
       <nav></nav>
-      <p> Copyright © 2022 番茄炒蛋 Inc.  </p>
+      <p> 皖ICP备2022009709号-1 </p>
     </div>
   </footer>
 </template>
